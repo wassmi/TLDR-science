@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 ```
-![popup](1article-first-popup.png 
+![popup](1article-first-popup.png) 
 
 
 ## Step 2: Adding the Extension to Chrome as a Developer
