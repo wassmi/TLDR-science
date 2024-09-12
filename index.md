@@ -1,4 +1,4 @@
-# TLDR Science: A Personal Project
+# TLDR Science: Using NLP and Automation to save time reading
 
 I was going down the rabbit hole of autoimmunity research, reading every article I could find. But the more I read, the more overwhelmed I became. I needed a way to parse through the noise and get to the good stuff.
 
