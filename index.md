@@ -199,6 +199,4 @@ def send_whatsapp_message(to_number, message):
 * **Time-Saving**: Quickly grasp the essence of scientific studies.
 * **Enhanced Productivity**: Focus on key points and insights.
 
-## Conclusion
 
-TLDR Science demonstrates my ability to design and implement a solution to a complex problem using NLP and software development skills. I'm excited to apply these skills to future projects and collaborations.
