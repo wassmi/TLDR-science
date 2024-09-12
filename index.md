@@ -78,7 +78,7 @@ function extractText() {
 This is how the popup with it's button looks like once it's created (top right of the image).
 ![popup](1article-first-popup.png) 
 
-![popup2](2rticle-first-popup.png) 
+![popup2](2article-first-popup.png) 
 
 ## Step 4: Python Retrieves the Text
 --------------------------------
@@ -98,9 +98,6 @@ def extract_text():
     text = request.get_json()["text"]
     return "Text received!"
 ```
-Once the text retrival algorithm is set, we can click on the button and all the text from the URL 
-we are on will be retrieved.
-![clicked](3click-progress.png) 
 
 ## Step 5: Technical Specificities to Make it Happen
 ----------------------------------------------
@@ -109,6 +106,9 @@ we are on will be retrieved.
 * Used a library such as PyChrome to handle the communication between the Chrome extension and the Python backend
 * Set up a database (such as SQLite) to store the extracted text and summaries
 
+Once the text retrival algorithm is set, we can click on the button and all the text from the URL 
+we are on will be retrieved.
+![clicked](3click-progress.png) 
 ![progress](4progress.png) 
 
 ## Step 6: Analyzing the Text using OpenAI GPT-4
