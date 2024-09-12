@@ -156,7 +156,7 @@ def generate_pdf():
     c.save()
     return "PDF generated!"
 ```
-Here you will find the generated PDF: ![summary](summary.pdf)
+Here you will find the generated PDF: [summary](summary.pdf)
 
 Here is a side by side comparison of the original article and the outputed PDF TLDR generated using NLP.
 ![compare](5compare.png) 
