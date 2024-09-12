@@ -8,11 +8,7 @@ The entire code can be found on my github repo.
 
 ## Overview
 
-TLDR Science is a personal project that aims to automate the summarization of scientific research papers into concise, easy-to-understand summaries. This project showcases my skills in:
-
-* **Natural Language Processing (NLP)**: Text analysis and summarization techniques.
-* **Software Development**: Designing and implementing a solution to automate summarization.
-* **Critical Thinking**: Distilling complex research into key points and simple language.
+TLDR Science is a personal project that aims to automate the summarization of scientific research papers into concise, easy-to-understand summaries sent directly to me via Whatsapp. 
 
 # Building TLDR Science
 ====================================
@@ -112,7 +108,7 @@ we are on will be retrieved.
 ![clicked](3click-progress.png) 
 ![progress](4progress.png) 
 
-## Step 6: Analyzing the Text using OpenAI GPT-4
+## Step 6: Analyzing the Text using OpenAI GPT-4o mini
 --------------------------------------------
 
 * Chose OpenAI GPT-4o mini for its large context window and ability to analyze long pieces of text
@@ -160,6 +156,30 @@ Here you will find the generated PDF: [summary](summary.pdf)
 
 Here is a side by side comparison of the original article and the outputed PDF TLDR generated using NLP.
 ![compare](5compare.png) 
+
+## Step 8: Summary of that PDF sent to me via Whatsapp
+---------------------------------------------
+
+```
+def send_whatsapp_message(to_number, message):
+    try:
+        message = twilio_client.messages.create(
+            body=message,
+            from_=f'whatsapp:{TWILIO_WHATSAPP_NUMBER}',
+            to=f'whatsapp:{to_number}'
+        )
+        print(f"WhatsApp message sent: {message.sid}")
+        return True
+    except TwilioRestException as e:
+        print(f"Twilio Error: {e.code} - {e.msg}")
+        print(f"More info: {e.more_info}")
+        return False
+    except Exception as e:
+        print(f"An unexpected error occurred: {str(e)}")
+        return False
+```
+![notif](notif.png)
+![text](text.png)
 
 ## Features and Functionality
 
