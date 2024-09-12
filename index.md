@@ -23,6 +23,18 @@ TLDR Science is a personal project that aims to automate the summarization of sc
 * Added the necessary permissions to the manifest.json file to allow the extension to access web pages and extract text
 * Created a basic popup HTML file with a button to trigger the text extraction
 
+### manifest.json
+```json
+{
+  "name": "TLDR Science",
+  "version": "1.0",
+  "manifest_version": 2,
+  "permissions": ["activeTab"],
+  "browser_action": {
+    "default_popup": "popup.html"
+  }
+} 
+
 ## Step 2: Adding the Extension to Chrome as a Developer
 -----------------------------------------------
 
