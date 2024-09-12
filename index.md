@@ -44,7 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 ```
-![popup](1article-first-popup.png) 
+
+
 
 
 ## Step 2: Adding the Extension to Chrome as a Developer
@@ -74,6 +75,10 @@ function extractText() {
   return text;
 }
 ```
+This is how the popup with it's button looks like once it's created (top right of the image).
+![popup](1article-first-popup.png) 
+
+![popup2](2rticle-first-popup.png) 
 
 ## Step 4: Python Retrieves the Text
 --------------------------------
@@ -93,6 +98,9 @@ def extract_text():
     text = request.get_json()["text"]
     return "Text received!"
 ```
+Once the text retrival algorithm is set, we can click on the button and all the text from the URL 
+we are on will be retrieved.
+![clicked](3click-progress.png) 
 
 ## Step 5: Technical Specificities to Make it Happen
 ----------------------------------------------
@@ -100,6 +108,8 @@ def extract_text():
 * Used the Chrome extension API to communicate between the Chrome extension and the Python backend
 * Used a library such as PyChrome to handle the communication between the Chrome extension and the Python backend
 * Set up a database (such as SQLite) to store the extracted text and summaries
+
+![progress](4progress.png) 
 
 ## Step 6: Analyzing the Text using OpenAI GPT-4
 --------------------------------------------
@@ -145,6 +155,10 @@ def generate_pdf():
     c.save()
     return "PDF generated!"
 ```
+
+Here is a side by side comparison of the original article and the outputed PDF TLDR generated using NLP.
+![compare](5compare.png) 
+
 ## Features and Functionality
 
 * **Summarization Algorithm**: A custom-built algorithm to extract key points and generate summaries.
