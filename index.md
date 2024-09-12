@@ -1,6 +1,9 @@
 # TLDR Science: A Personal Project
 
-A self-initiated project to simplify scientific research using natural language processing and summarization techniques.
+I was going down the rabbit hole of autoimmunity research, reading every article I could find. But the more I read, the more overwhelmed I became. I needed a way to parse through the noise and get to the good stuff.
+
+That's when I turned to AI and programming to help me out. I built TLDR Science to automate the summarization of research papers, so I could focus on the big picture.
+
 
 ## Overview
 
