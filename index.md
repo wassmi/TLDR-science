@@ -34,6 +34,17 @@ TLDR Science is a personal project that aims to automate the summarization of sc
     "default_popup": "popup.html"
   }
 } 
+```
+### popup.js
+```
+document.addEventListener("DOMContentLoaded", function () {
+  const extractTextButton = document.getElementById("extract-text");
+  extractTextButton.addEventListener("click", function () {
+    // Extract text logic will go here
+  });
+});
+```
+
 
 ## Step 2: Adding the Extension to Chrome as a Developer
 -----------------------------------------------
@@ -49,12 +60,38 @@ TLDR Science is a personal project that aims to automate the summarization of sc
 * Used JavaScript to listen for the button click event and extract the text from the current web page
 * Used the Chrome extension API to access the current tab and extract the text
 
+### popup.js
+```
+chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+  chrome.tabs.sendMessage(tabs[0].id, { action: "extractText" });
+});
+```
+### contentScript.js
+```
+function extractText() {
+  const text = document.body.textContent;
+  return text;
+}
+```
+
 ## Step 4: Python Retrieves the Text
 --------------------------------
 
 * Set up a Python backend to receive the extracted text from the Chrome extension
 * Used a library such as Flask to create a simple web server to receive the text
 * Used a library such as requests to send the text from the Chrome extension to the Python backend
+
+### app.py
+```
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route("/extract-text", methods=["POST"])
+def extract_text():
+    text = request.get_json()["text"]
+    return "Text received!"
+```
 
 ## Step 5: Technical Specificities to Make it Happen
 ----------------------------------------------
@@ -70,12 +107,43 @@ TLDR Science is a personal project that aims to automate the summarization of sc
 * Used the OpenAI API to send the extracted text to GPT-4 for analysis
 * Received the analyzed text and summary from GPT-4 and stored it in the database
 
+### app.py
+```
+import openai
+
+openai.api_key = os.environ["OPENAI_API_KEY"]
+
+@app.route("/analyze-text", methods=["POST"])
+def analyze_text():
+    text = request.get_json()["text"]
+    response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=text,
+        max_tokens=2048,
+        temperature=0.5,
+    )
+    summary = response.choices[0].text
+    return summary
+```
+
 ## Step 7: Output to PDF and Saved to Directory
 ---------------------------------------------
 
 * Used a library such as ReportLab to generate a PDF from the summary
 * Saved the PDF to a directory on the local machine
 
+### app.py 
+```
+from reportlab.pdfgen import canvas
+
+@app.route("/generate-pdf", methods=["POST"])
+def generate_pdf():
+    summary = request.get_json()["summary"]
+    c = canvas.Canvas("summary.pdf")
+    c.drawString(100, 750, summary)
+    c.save()
+    return "PDF generated!"
+```
 ## Features and Functionality
 
 * **Summarization Algorithm**: A custom-built algorithm to extract key points and generate summaries.
