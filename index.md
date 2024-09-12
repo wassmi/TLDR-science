@@ -4,6 +4,7 @@ I was going down the rabbit hole of autoimmunity research, reading every article
 
 That's when I turned to AI and programming to help me out. I built TLDR Science to automate the summarization of research papers, so I could focus on the big picture.
 
+The entire code can be found on my github repo. 
 
 ## Overview
 
@@ -114,8 +115,8 @@ we are on will be retrieved.
 ## Step 6: Analyzing the Text using OpenAI GPT-4
 --------------------------------------------
 
-* Chose OpenAI GPT-4 for its large context window and ability to analyze long pieces of text
-* Used the OpenAI API to send the extracted text to GPT-4 for analysis
+* Chose OpenAI GPT-4o mini for its large context window and ability to analyze long pieces of text
+* Used the OpenAI API to send the extracted text to GPT-4o mini for analysis
 * Received the analyzed text and summary from GPT-4 and stored it in the database
 
 ### app.py
